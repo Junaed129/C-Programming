@@ -1,0 +1,85 @@
+//Write a program to remove blank spaces in a string.
+# include <stdio.h>
+# include <string.h>
+
+void removespace(char str[],int m);
+
+int main() {
+    char str[100];
+    int m;
+    scanf("%[^\n]s",str);
+    m=strlen(str);
+    removespace(str,m);
+    return 0;
+}
+void removespace(char str[],int m){
+    int i=0,j=0,k=0,l=0;
+    char newstr[100];
+    while(i<m){
+        if(str[i]!=' '){
+            newstr[j]=str[i];
+            j++;
+        }
+        else{
+            l++;
+        }
+        i++;
+    }
+    k=m-l;
+    newstr[k]='\0';
+    puts(newstr);
+}
+
+//Write a program to replace lowercase letters withuppercase & vice versa in a string.
+# include <stdio.h>
+# include <string.h>
+
+void casechange(char str[],int m);
+
+int main() {
+    char str[100];
+    int m;
+    scanf("%s",str);
+    m=strlen(str);
+    casechange(str,m);
+    return 0;
+}
+void casechange(char str[],int m){
+    char newchar[200];
+    for (int i=0;i<m;i++){
+        if (str[i]<97){
+            newchar[i]=str[i]+32;
+        }
+        else {
+            newchar[i]=str[i]-32;
+        }
+    }
+    puts(newchar);
+}
+
+//Write a program to convert all lowercase vowels touppercase in a string.
+# include <stdio.h>
+# include <string.h>
+
+void slice(char password[],int m);
+
+int main() {
+    char str[100];
+    int m;
+    scanf("%s",str);
+    m=strlen(str);
+    slice(str,m);
+    return 0;
+}
+void slice(char password[],int m){
+    char newchar[200];
+    for (int i=0;i<m;i++){
+        if (password[i]=='a'||password[i]=='e'|| password[i]=='i'|| password[i]=='o'|| password[i]=='u'){
+            newchar[i]=password[i]-32;
+        }
+        else {
+            newchar[i]=password[i];
+        }
+    }
+    puts(newchar);
+}
