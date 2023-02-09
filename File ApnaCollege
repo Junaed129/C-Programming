@@ -1,0 +1,275 @@
+//1 Write a program to read a string from a file &output to the user.
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+  FILE *fptr;
+  char filename[100];
+  char str[100];
+
+  printf("Enter the filename: ");
+  scanf("%s", filename);
+
+  fptr = fopen(filename, "r");
+  if (fptr == NULL) {
+    printf("Unable to open the file.\n");
+    return 1;
+  }
+  fgets(str, 100, fptr);
+  printf("The string read from the file is: %s\n", str);
+
+  fclose(fptr);
+  return 0;
+}
+
+//2 Write a program to read a string from a file &output to the user.
+#include <stdio.h>
+#include <string.h>
+
+int count_vowels(char *str) {
+  int count = 0;
+  for (int i = 0; i < strlen(str); i++) {
+    if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' ||
+        str[i] == 'o' || str[i] == 'u' || str[i] == 'A' ||
+        str[i] == 'E' || str[i] == 'I' || str[i] == 'O' ||
+        str[i] == 'U') {
+      count++;
+    }
+  }
+  return count;
+}
+
+int main() {
+  FILE *fptr;
+  char filename[100];
+  char str[100];
+  int count;
+
+  printf("Enter the filename: ");
+  scanf("%s", filename);
+
+  fptr = fopen(filename, "r");
+  if (fptr == NULL) {
+    printf("Unable to open the file.\n");
+    return 1;
+  }
+
+  fgets(str, 100, fptr);
+  count = count_vowels(str);
+  fclose(fptr);
+
+  fptr = fopen(filename, "w");
+  if (fptr == NULL) {
+    printf("Unable to open the file for writing.\n");
+    return 1;
+  }
+
+  fprintf(fptr, "%d", count);
+  fclose(fptr);
+
+  printf("The number of vowels in the string is: %d\n", count);
+  return 0;
+}
+
+//3 Replace a file containing 2 numbers with their sum
+# include <stdio.h>
+# include <string.h>
+
+int main() {
+
+FILE *fptr;
+fptr = fopen("sum.txt","r");
+int a,b;
+fscanf(fptr,"%d",&a);
+fscanf(fptr,"%d",&b);
+fclose(fptr);
+
+fptr = fopen("sum.txt","w");
+fprintf(fptr,"%d",a+b);
+fclose(fptr);
+
+return 0;
+}
+
+//4 Print the odd numbers between a 1 to a given range.
+# include <stdio.h>
+# include <string.h>
+
+int main() {
+
+FILE *fptr;
+fptr = fopen("odd.txt","w");
+
+int n,i;
+printf("Enter n: ");
+scanf("%d",&n);
+for (i=0;i<=n;i++){
+    if (i%2!=0){
+        fprintf(fptr,"%d\t",i);
+    }
+}
+fclose(fptr);
+return 0;
+}
+
+//5 Print student information in file.
+# include <stdio.h>
+# include <string.h>
+
+int main() {
+
+FILE *fptr;
+fptr = fopen("Info.txt","w");
+
+char name[100];
+int age;
+float CGPA;
+
+printf("Enter Name: ");
+scanf("%s",name);
+
+printf("Enter Age: ");
+scanf("%d",&age);
+
+printf("Enter CGPA: ");
+scanf("%f",&CGPA);
+
+fprintf(fptr,"Student Name is %s\n",name);
+fprintf(fptr,"Student age is %d\n",age);
+fprintf(fptr,"Student CGPA is %f",CGPA);
+return 0;
+
+}
+
+//6 Read characters till end is found
+# include <stdio.h>
+# include <string.h>
+
+int main() {
+
+FILE *fptr;
+fptr = fopen("Test.txt","r");
+char ch;
+//fscanf(fptr,"%c",&ch);
+ch =fgetc(fptr);
+while (ch!=EOF){
+     printf("character= %c\n",ch);
+     ch =fgetc(fptr);
+}
+return 0;
+}
+
+//7 Read characters from files
+# include <stdio.h>
+# include <string.h>
+
+int main() {
+
+FILE *fptr;
+fptr = fopen("Test.txt","r");
+printf("%c\n",fgetc(fptr));
+printf("%c\n",fgetc(fptr));
+printf("%c\n",fgetc(fptr));
+printf("%c\n",fgetc(fptr));
+printf("%c\n",fgetc(fptr));
+printf("%c\n",fgetc(fptr));
+
+fclose(fptr);
+return 0;
+
+}
+
+
+//8 Files append
+# include <stdio.h>
+# include <string.h>
+
+int main() {
+
+FILE *fptr;
+//fptr = fopen("Test.txt","w");
+fptr = fopen("Test.txt","a");
+
+fprintf(fptr,"%c",'H');
+fprintf(fptr,"%c",'O');
+fprintf(fptr,"%c",'S');
+fprintf(fptr,"%c",'S');
+fprintf(fptr,"%c",'A');
+fprintf(fptr,"%c",'I');
+fprintf(fptr,"%c",'N');
+fclose(fptr);
+return 0;
+
+}
+
+
+//9 Read numbers from file
+# include <stdio.h>
+# include <string.h>
+
+int main() {
+
+FILE *fptr;
+//fptr = fopen("NewTest.txt","r");
+fptr = fopen("Test2.txt","r");
+int ch;
+fscanf(fptr,"%d",&ch);
+printf("character= %d\n",ch);
+fscanf(fptr,"%d",&ch);
+printf("character= %d\n",ch);
+fscanf(fptr,"%d",&ch);
+printf("character= %d\n",ch);
+
+fclose(fptr);
+return 0;
+
+}
+
+
+//10 Read characters from file
+# include <stdio.h>
+# include <string.h>
+int main() {
+FILE *fptr;
+//fptr = fopen("NewTest.txt","r");
+fptr = fopen("Test.txt","r");
+char ch;
+fscanf(fptr,"%c",&ch);
+printf("character= %c\n",ch);
+fscanf(fptr,"%c",&ch);
+printf("character= %c\n",ch);
+fscanf(fptr,"%c",&ch);
+printf("character= %c\n",ch);
+fscanf(fptr,"%c",&ch);
+printf("character= %c\n",ch);
+fscanf(fptr,"%c",&ch);
+printf("character= %c\n",ch);
+fscanf(fptr,"%c",&ch);
+printf("character= %c\n",ch);
+
+fclose(fptr);
+return 0;
+
+}
+
+// File basic
+# include <stdio.h>
+# include <string.h>
+
+int main() {
+
+FILE *fptr;
+//fptr = fopen("NewTest.txt","r");
+fptr = fopen("NewTest.csv","w");
+if (fptr == NULL){
+    printf("File does not exist");
+}
+else{
+    fptr=fclose(fptr);
+}
+return 0;
+
+}
+
+
