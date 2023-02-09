@@ -1,0 +1,193 @@
+//1 CGPA Calculation
+# include <stdio.h>
+# include <string.h>
+
+typedef struct calculating_CGPA{
+    float GPA[100];
+}CGPA;
+
+void calcgpa(CGPA v1, CGPA v2, CGPA v3);
+
+int main() {
+    CGPA GP[100];
+    //CGPA GP={3.1,3.2,3.3};
+    printf("Enter semester 1 GPA: ");
+    scanf("%f",&GP[0].GPA[0]);
+    printf("\nEnter semester 2 GPA: ");
+    scanf("%f",&GP[1].GPA[0]);
+    printf("\nEnter semester 3 GPA: ");
+    scanf("%f",&GP[2].GPA[0]);
+    calcgpa(GP[0], GP[1], GP[2]);
+    return 0;
+}
+void calcgpa(CGPA v1, CGPA v2, CGPA v3){
+    float sum = (v1.GPA[0]+v2.GPA[0]+v3.GPA[0])/3;
+
+    printf("sum of x is : %f\n", sum);
+}
+
+//2 Account Name and number store
+# include <stdio.h>
+# include <string.h>
+
+typedef struct account{
+    int accountNo;
+    char name[100];
+}acc;
+
+int main() {
+    acc acc1={123,"Junaed"};
+
+    printf("acc no = %d\n",acc1.accountNo);
+    printf("Name = %s",acc1.name);
+    return 0;
+}
+
+//3 vector sum calculation
+# include <stdio.h>
+# include <string.h>
+
+struct vector{
+    int x,y;
+};
+
+void calsum(struct vector v1, struct vector v2, struct vector sum);
+
+int main() {
+    struct  vector v1={5, 10};
+    struct  vector v2={3, 7};
+    struct  vector sum={0};
+
+    calsum(v1, v2, sum);
+    return 0;
+
+
+}
+void calsum(struct vector v1, struct vector v2, struct vector sum){
+    sum.x=v1.x+v2.x;
+    sum.y=v1.y+v2.y;
+
+    printf("sum of x is : %d\n", sum.x);
+    printf("sum of y is : %d\n", sum.y);
+}
+
+//4 Structure Address
+# include <stdio.h>
+# include <string.h>
+
+typedef struct address{
+    int houseno;
+    int block;
+    char city[100];
+    char state[100];
+}adrs;
+
+int main() {
+    adrs ads[2];
+    // input;
+    printf("Enter information of person 1 : \n");
+    scanf("%d",&ads[0].houseno);
+    scanf("%d",&ads[0].block);
+    scanf("%s",&ads[0].city);
+    scanf("%s",&ads[0].state);
+
+    printf("Enter information of person 2 : \n");
+    scanf("%d",&ads[1].houseno);
+    scanf("%d",&ads[1].block);
+    scanf("%s",ads[1].city);
+    scanf("%s",ads[1].state);
+
+    addressinfo(ads[0]);
+    addressinfo(ads[1]);
+
+}
+void addressinfo(adrs ads){
+    printf("address is House no %d, Block no %d,city %s, state is %s\n",ads.houseno,ads.block,ads.city,ads.state);
+}
+
+//5 Student Information Structure
+# include <stdio.h>
+# include <string.h>
+
+typedef struct student{
+    int roll;
+    float cgpa;
+    char name[100];
+}stu;
+
+int main() {
+    stu s2;
+    s2.roll = 129;
+    s2.cgpa = 3.69;
+    strcpy(s2.name,"Junaed");
+
+    printf("Student Information\n");
+    printf("Student roll = %d\n", s2.roll);
+    printf("Student CGPA = %f\n", s2.cgpa);
+    printf("Student name = %s\n", s2.name);
+}
+
+
+//6 Structure String
+# include <stdio.h>
+# include <string.h>
+
+//user defined
+struct student{
+    int roll;
+    float cgpa;
+    char name[100];
+};
+
+int main() {
+    struct student s1={1664, 9.2, "Shradha"};
+    printf("Student roll = %d\n", s1.roll);
+}
+
+//7 Structure Array
+# include <stdio.h>
+# include <string.h>
+
+//user defined
+struct student{
+    int roll;
+    float cgpa;
+    char name[];
+};
+
+int main() {
+    struct student ece[100];
+    ece[0].roll=1664;
+    ece[0].cgpa=3.9;
+    strcpy(ece[0].name,"Junaed");
+
+    printf("Roll is %d\n",ece[0].roll);
+    printf("CGPA is %f\n",ece[0].cgpa);
+    printf("Name is %s\n",ece[0].name);
+
+}
+
+//8 Structure Basic
+# include <stdio.h>
+# include <string.h>
+
+//user defined
+struct student{
+    int roll;
+    float cgpa;
+    char name[];
+};
+
+int main() {
+    struct student s1;
+    s1.roll = 664;
+    s1.cgpa= 3.69;
+    strcpy(s1.name,"Junaed");
+
+    printf("Roll is %d\n",s1.roll);
+    printf("CGPA is %f\n",s1.cgpa);
+    printf("Name is %s\n",s1.name);
+
+}
+
+
